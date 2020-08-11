@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { getList, addItem, deleteItem, updateItem } from './ListFunctions'
 
-class List extends  Component {
+class List extends Component {
     constructor() {
         super()
         this.state = {
@@ -81,7 +81,7 @@ class List extends  Component {
         deleteItem(val)
 
         var data = [...this.state.items]
-        data.filter(function(item, index) {
+        data.filter(function (item, index) {
             if (item.id === val) {
                 data.splice(index, 1)
             }
@@ -92,15 +92,15 @@ class List extends  Component {
 
     render() {
         return (
-            
+
             <div className="ant-row">
                 <div className="ant-col ant-col-sm-24">
-                <div className="addtion___1ySEy">
-                    
+                    <div className="addtion___1ySEy">
+
                         {this.state.items.map((item, index) => (
                             <div key={index}>
-                                <div className="addtionItem___2XzJ-" style={{marginTop:15}}>{item.title}</div>
-                                <div style={{marginRight:10}}>
+                                <div className="addtionItem___2XzJ-" style={{ marginTop: 15 }}>{item.title}</div>
+                                <div style={{ marginRight: 10 }}>
                                     <button
                                         href=""
                                         className="btn btn-info mr-1"
@@ -126,53 +126,53 @@ class List extends  Component {
                                 </div>
                             </div>
                         ))}
-                    
-                </div>
+
+                    </div>
                 </div>
                 <div className="ant-col ant-col-sm-6">
-                <form onSubmit={this.onSubmit}>
-                    <div className="form-group" style={{marginTop:15}}>
-                        <label htmlFor="title">Add/edit tags</label>
-                        <div className="row">
-                            <div className="col-md-12">
-                                <input
-                                    type="text"
-                                    className="form-control"
-                                    id="title"
-                                    name="title"
-                                    value={this.state.title || ''}
-                                    onChange={this.onChange.bind(this)}
-                                />
+                    <form onSubmit={this.onSubmit}>
+                        <div className="form-group" style={{ marginTop: 15 }}>
+                            <label htmlFor="title">Add/edit tags</label>
+                            <div className="row">
+                                <div className="col-md-12">
+                                    <input
+                                        type="text"
+                                        className="form-control"
+                                        id="title"
+                                        name="title"
+                                        value={this.state.title || ''}
+                                        onChange={this.onChange.bind(this)}
+                                    />
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    {!this.state.editDisabled ? (
-                        <button
-                            type="submit"
-                            onClick={this.onSubmit.bind(this)}
-                            className="btn btn-success btn-block"
-                        >
-                            Submit
-                        </button>
-                    ) : (
-                        ''
-                    )}
-                    {this.state.editDisabled ? (
-                        <button
-                            type="submit"
-                            onClick={this.onUpdate.bind(this)}
-                            className="btn btn-primary btn-block"
-                        >
-                            Update
-                        </button>
-                    ) : (
-                        ''
-                    )}
-                </form>
+                        {!this.state.editDisabled ? (
+                            <button
+                                type="submit"
+                                onClick={this.onSubmit.bind(this)}
+                                className="btn btn-success btn-block"
+                            >
+                                Submit
+                            </button>
+                        ) : (
+                                ''
+                            )}
+                        {this.state.editDisabled ? (
+                            <button
+                                type="submit"
+                                onClick={this.onUpdate.bind(this)}
+                                className="btn btn-primary btn-block"
+                            >
+                                Update
+                            </button>
+                        ) : (
+                                ''
+                            )}
+                    </form>
                 </div>
             </div>
-        
-            
+
+
         )
     }
 }
